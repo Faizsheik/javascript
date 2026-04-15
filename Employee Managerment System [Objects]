@@ -1,0 +1,25 @@
+
+//construtor function
+function Employee(id,name,designation,salary)
+{
+   this.id = id;
+   this.name = name;
+   this.designation = designation;
+   this.salary = salary;
+}
+
+const EmployeeDetails = {};
+
+function addEmployee(id,name,designation,salary){
+    const empobj = new Employee (id,name,designation,salary);
+    EmployeeDetails[id] = empobj;
+    console.log(`Employee with ${Id} created`);
+}
+
+
+
+
+
+
+
+
