@@ -3,19 +3,37 @@ import UserCard from './components/card';
 import './App.css';
 import UserManager from './components/usermanager';
 import MyForm from './components/MyForm'
+import {useState,useEffect} from 'react';
+import Result from './components/Result';
+const secretNum = Math.floor(Math.random()*10)+1;
 
 
 function App() {
 
-  const users = [
-    {id:1, name:"faiz", age:23},
-    {id:2,name:"jeni", age: 16},
-    {id:3,name:"jesi",age:28}
-  ]
+  const [term,setTerm] = useState("");
+
+
+  const handleChange  = (e) => {
+    setTerm(e.target.value);
+  }
+
+  // const users = [
+  //   {id:1, name:"faiz", age:23},
+  //   {id:2,name:"jeni", age: 16},
+  //   {id:3,name:"jesi",age:28}
+  // ]
  
   return (
   
-    <div className="App">
+    <div className="container">
+      <div className='head'>
+         <label htmlFor='term'>Guess the number between 1-10 </label> 
+      </div>
+      {/* <p>Answer: {secretNum}</p> */}
+
+      
+        <input id='term' type='text' name='term' onChange={handleChange} />
+        <Result  secretNum={secretNum} term={term} />
 
        
 
@@ -44,7 +62,7 @@ function App() {
         })
       } */}
       {/* <UserManager/>    */}
-      <MyForm/>
+      {/* <MyForm/> */}
 
     </div>
   )
